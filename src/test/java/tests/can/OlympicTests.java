@@ -4,8 +4,7 @@ import org.testng.annotations.Test;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import pages.MedalsPage;
-import pages.OlympicTablePage;
+import pages.*;
 import utilities.TestBase;
 
 import java.util.List;
@@ -14,7 +13,9 @@ import java.util.List;
 
         OlympicTablePage olympic;
         MedalsPage medalsPage;
-
+        Countries countries;
+        Index index;
+        Sum sum;
         @Test
         public void sort() {
             olympic = new OlympicTablePage(driver);
@@ -27,11 +28,28 @@ import java.util.List;
         @Test
         public void medal(){
             medalsPage = new MedalsPage(driver);
-         //   System.out.println(medalsPage.goldMedals());
             medalsPage.getMostBronzeMedalCountry();
             medalsPage.getMostGoldMedalCountry();
             medalsPage.getMostSilverMedalCountry();
             medalsPage.getMostMedalCountry();
 
+        }
+
+        @Test
+        public void country(){
+            countries = new Countries(driver);
+            countries.silverCountries();
+        }
+
+        @Test
+        public void getIndex(){
+            index = new Index(driver);
+            index.getCell("United States");
+        }
+
+        @Test
+        public void getSum() {
+            sum = new Sum(driver);
+            sum.sumMedals();
         }
 }
